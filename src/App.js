@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './App.css';
-import Poke from '../src/poke.json';
-class App extends Component{
-  constructor(){
+import { CardList } from './components/Card-list/card-list.component'
+class App extends Component {
+  constructor() {
     super();
-    this.state={
-      pokemons:[
+    this.state = {
+      pokemons: [
         {
           "_id": "557a723880a20c9db3bc31c2",
           "pkdx_id": 1,
@@ -2399,18 +2399,17 @@ class App extends Component{
           "evolutions": []
         }
       ]
-      
+
     }
   }
-  render(){
-     
-    return(
-      <div className='App'>
-        <button onClick={()=>this.setState({string:'holisss'})}>Change Text</button>
-        {Poke.map(pokemon => (
+  render() { 
 
-          <h1 key={pokemon._id}>{pokemon.name}</h1>
-        ))}
+    return (
+      <div className='App'>
+        <CardList monsters={this.state.monsters}>
+        
+        </CardList>
+
       </div>
     )
   }
