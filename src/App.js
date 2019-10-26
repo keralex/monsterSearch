@@ -2404,11 +2404,15 @@ class App extends Component {
     }
   }
   render() {
-
+    
+    const {pokemons,searchField} = this.state;
+    const filteredPokemons=pokemons.filter(pokemon =>
+      pokemon.name.toLowerCase().includes(searchField.toLowerCase()));
+      console.log(filteredPokemons);
     return (
       <div className='App'>
         <input type='search' placeholder='search pokemon' onChange={e => this.setState({searchField:e.target.value},()=>console.log(this.state.searchField))} />
-        <CardList pokemons={this.state.pokemons} />
+        <CardList pokemons={filteredPokemons} />
       </div>
     )
   }
