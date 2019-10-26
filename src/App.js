@@ -2398,18 +2398,17 @@ class App extends Component {
           "types": ["psychic"],
           "evolutions": []
         }
-      ]
+      ],
+      searchField: ''
 
     }
   }
-  render() { 
+  render() {
 
     return (
       <div className='App'>
-        <CardList monsters={this.state.monsters}>
-        
-        </CardList>
-
+        <input type='search' placeholder='search pokemon' onChange={e => this.setState({searchField:e.target.value},()=>console.log(this.state.searchField))} />
+        <CardList pokemons={this.state.pokemons} />
       </div>
     )
   }
