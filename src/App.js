@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import { CardList } from './components/Card-list/card-list.component'
+import { SearchBox } from './components/search-box/search-box.component'
+
+
 class App extends Component {
   constructor() {
     super();
@@ -2404,14 +2407,14 @@ class App extends Component {
     }
   }
   render() {
-    
-    const {pokemons,searchField} = this.state;
-    const filteredPokemons=pokemons.filter(pokemon =>
+
+    const { pokemons, searchField } = this.state;
+    const filteredPokemons = pokemons.filter(pokemon =>
       pokemon.name.toLowerCase().includes(searchField.toLowerCase()));
-      console.log(filteredPokemons);
-    return (
+    return (  
       <div className='App'>
-        <input type='search' placeholder='search pokemon' onChange={e => this.setState({searchField:e.target.value},()=>console.log(this.state.searchField))} />
+
+        <SearchBox placeholder='search pokemons' handleChange={e => this.setState({ searchField: e.target.value }, () => console.log(this.state.searchField))} />
         <CardList pokemons={filteredPokemons} />
       </div>
     )
