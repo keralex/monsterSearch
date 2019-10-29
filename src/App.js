@@ -2406,15 +2406,18 @@ class App extends Component {
 
     }
   }
+  handleChange = (e) =>{
+    this.setState({ searchField: e.target.value });
+  }
   render() {
 
-    const { pokemons, searchField } = this.state;
+    const { pokemons, searchField } =  this.state;
     const filteredPokemons = pokemons.filter(pokemon =>
       pokemon.name.toLowerCase().includes(searchField.toLowerCase()));
     return (  
       <div className='App'>
-
-        <SearchBox placeholder='search pokemons' handleChange={e => this.setState({ searchField: e.target.value }, () => console.log(this.state.searchField))} />
+        <h1>POKEDEX</h1>
+        <SearchBox placeholder='search pokemons' handleChange={this.handleChange} />
         <CardList pokemons={filteredPokemons} />
       </div>
     )
